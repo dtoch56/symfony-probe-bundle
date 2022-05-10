@@ -1,0 +1,78 @@
+{
+    "name": "dtoch56/symfony-probe-bundle",
+    "description": "Symfony probe bundle",
+    "homepage": "https://github.com/dtoch56/symfony-probe-bundle",
+    "type": "symfony-bundle",
+    "keywords": [
+        "dtoch56",
+        "Symfony",
+        "monitoring",
+        "healthcheck",
+        "doctrine",
+        "Symfony-Probe",
+        "Symfony-Probe-Bundle"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Max Mudrichenko",
+            "email": "dtoch.56@gmail.com",
+            "homepage": "https://dtoch.dev/",
+            "role": "Software Engineer"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "symfony/console": "^5.0 || ^6.0",
+        "symfony/framework-bundle": "^5.0 || ^6.0"
+    },
+    "require-dev": {
+        "ext-json": "*",
+        "symfony/phpunit-bridge": "^5.0 || ^6.0",
+        "symfony/yaml": "^5.0 || ^6.0",
+        "symfony/browser-kit": "^5.0 || ^6.0",
+        "phpmd/phpmd": "^2.12",
+        "phpstan/phpstan": "^1.6",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-doctrine": "^1.3",
+        "phpstan/phpstan-phpunit": "^1.1",
+        "phpstan/phpstan-strict-rules": "^1.2",
+        "phpstan/phpstan-symfony": "^1.1",
+        "squizlabs/php_codesniffer": "^3.6",
+        "roave/security-advisories": "dev-master",
+        "phpmetrics/phpmetrics": "^v2.8",
+        "sebastian/phpcpd": "^6.0",
+        "vimeo/psalm": "^4.23",
+        "phan/phan": "^5.3",
+        "phploc/phploc": "^7.0",
+        "blackfire/php-sdk": "*",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "DToch56\\SymfonyProbeBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DToch56\\SymfonyProbeBundle\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "composer-validate": [
+            "composer validate"
+        ],
+        "cs": [
+            "vendor/bin/phpcs"
+        ],
+        "cs-fix": [
+            "vendor/bin/phpcbf"
+        ],
+        "phpstan": [
+            "vendor/bin/phpstan analyse"
+        ],
+        "phpunit": [
+            "vendor/bin/simple-phpunit"
+        ]
+    }
+}

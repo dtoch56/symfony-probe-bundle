@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  symfony_probe_bundle:
+    container_name: symfony_probe_bundle
+    build:
+      context: .
+      args:
+        - CUSTOM_UID
+        - CUSTOM_GID
+        - PHP_VERSION=${PHP_VERSION:-8.1.5}
+    command: tail -f /dev/null
+    volumes:
+      - ".:/app"
+      - ~/.ssh/:/home/www/.ssh/

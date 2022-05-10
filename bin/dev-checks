@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+
+rm -rf build/*
+mkdir -p build/logs
+
+./vendor/bin/phpstan analyse src/ \
+  --level=5 \
+  --no-progress
+
+./vendor/bin/phpcs -p ./src/ ./tests/ \
+  --standard=PSR12
+
+./vendor/bin/psalm \
+  --show-info=true
+
+#./vendor/bin/phploc src/ \
+#  --count-tests \
+#  --log-xml=build/logs/phploc.xml
+
+#./vendor/bin/phpmetrics \
+#  --plugins=./vendor/phpmetrics/composer-extension/ComposerExtension.php \
+#  --report-html=build/phpmetrics \
+#  src
+
+#./vendor/bin/phpcpd \
+#  ./src/
+
+#./vendor/bin/phpmd \
+#  ./public,./src text codesize,unusedcode,naming \
+#  --suffixes php
+
+local-php-security-checker --path=./
+
+./vendor/bin/phpunit \
+  --coverage-html build/coverage/ \
+  --coverage-xml build/coverage/ \
+  --coverage-clover build/clover.xml
+
+
+
+#vendor/bin/phpmd src/ text cleancode,codesize,design
+#vendor/bin/phpstan analyse -c bin/phpstan.neon src/ --no-progress -vvv --memory-limit=1024M --level=5
